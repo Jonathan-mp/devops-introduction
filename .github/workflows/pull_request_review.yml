@@ -1,0 +1,40 @@
+name: Run Django Tests
+
+on:
+#  push:
+#    branches:
+#      - dev
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Puede ser otro sistema operativo, dependiendo de tu preferencia.
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  # Cambia la versión de Python si lo necesitas.
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+#      - name: Set up PostgreSQL database (opcional, si usas PostgreSQL)
+#        uses: postgres-action/setup-postgres@v2
+#        with:
+#          postgres-version: '13'  # Cambia la versión si es necesario.
+
+      - name: Run database migrations
+        run: |
+          python manage.py migrate
+
+      - name: Run tests
+        run: |
+          python manage.py test
