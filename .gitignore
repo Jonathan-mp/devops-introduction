@@ -1,0 +1,87 @@
+# VENV
+.venv/*
+.env/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media files (uploads)
+media/
+# Static files (collected)
+staticfiles/
+
+# Pyenv
+.python-version
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code settings
+.vscode/
+
+# PyCharm
+.idea/
+
+# mypy
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# pytest
+.pytest_cache/
+
+# celery beat schedule file
+celerybeat-schedule
+
+# Django migrations
+*/migrations/
+
+# If you want to exclude only __pycache__ inside migrations, use:
+**/migrations/__pycache__/
+
+# dotenv environment variables file
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Django REST Framework browsable API cache
+*.cache
+
+
+**.pyc
+
