@@ -34,7 +34,7 @@ jobs:
       - name: Run database migrations
         run: |
           cd src
-          python src/manage.py migrate
+          python manage.py migrate
 
       - name: Run tests
         run: |
