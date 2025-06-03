@@ -33,8 +33,10 @@ jobs:
 
       - name: Run database migrations
         run: |
+          cd src
           python src/manage.py migrate
 
       - name: Run tests
         run: |
-          python src/manage.py test
+          cd src
+          python manage.py test
