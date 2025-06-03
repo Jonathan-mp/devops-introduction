@@ -46,6 +46,3 @@ class CharacterAPITestCase(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertNotEqual(response.data['name'], self.character2.name)
-
-    def test_error(self):
-        self.assertEqual(1,2, "ESTO SIEMPRE SERA UN ERROR")
