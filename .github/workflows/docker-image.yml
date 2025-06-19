@@ -17,6 +17,4 @@ jobs:
     - name: Looking for files
       run: ls -lh
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Display docker image name
-      run: docker images ps
+      run: docker build . -t my-django-app:$(date +%s)
