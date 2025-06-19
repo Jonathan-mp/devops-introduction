@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Crate tag for docker image
-      run: echo "IMAGE_BASE_NAME=my-django-app:$(date +%s)" >> $GITHUB_ENV
+      run: echo "IMAGE_BASE_NAME=${{ secrets.DOCKERHUB_USERNAME}}/my-django-app:$(date +%s)" >> $GITHUB_ENV
     - name: Build the Docker image
       run: docker build . -t $IMAGE_BASE_NAME
 
@@ -30,4 +30,4 @@ jobs:
 
     - name: Pushing image to dockerhub
       run: |
-        docker push ${{ secrets.DOCKERHUB_USERNAME}}/$IMAGE_BASE_NAME
+        docker push $IMAGE_BASE_NAME
