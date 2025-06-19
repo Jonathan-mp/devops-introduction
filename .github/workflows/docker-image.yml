@@ -16,7 +16,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Looking for files
-      run: ls -lh
+
+    - name: Crate tag for docker image
+      run: echo "IMAGE_BASE_NAME=${{ secrets.DOCKERHUB_USERNAME}}/my-django-app:$(date +%s)" >> $GITHUB_ENV
     - name: Build the Docker image
-      run: docker build . -t $IMAGE_BASE_NAME:$(date +%s)
+      run: docker build . -t $IMAGE_BASE_NAME
+
+    - name: Docker Login
+      uses: docker/login-action@v3.4.0
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Pushing image to dockerhub
+      run: |
+        docker push $IMAGE_BASE_NAME
