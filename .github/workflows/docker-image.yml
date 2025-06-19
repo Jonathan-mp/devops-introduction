@@ -30,4 +30,4 @@ jobs:
 
     - name: Pushing image to dockerhub
       run: |
-        docker push $IMAGE_BASE_NAME
+        docker push ${{ secrets.DOCKERHUB_USERNAME}}/$IMAGE_BASE_NAME
