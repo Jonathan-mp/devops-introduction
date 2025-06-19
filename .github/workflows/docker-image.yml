@@ -6,8 +6,10 @@ on:
   pull_request:
     branches: [ "main", "dev" ]
 
-jobs:
+env:
+  IMAGE_BASE_NAME: my-django-app
 
+jobs:
   build:
 
     runs-on: ubuntu-latest
@@ -17,4 +19,4 @@ jobs:
     - name: Looking for files
       run: ls -lh
     - name: Build the Docker image
-      run: docker build . -t my-django-app:$(date +%s)
+      run: docker build . -t $IMAGE_BASE_NAME:$(date +%s)
